@@ -1,12 +1,13 @@
 # extended from https://github.com/WorldFamousElectronics/PulseSensor_Amped_Arduino
 
+## import csv module which allows us to read and write to a csv file.                                                                                              
+
+
 import time
 import threading
 import RPi.GPIO as GPIO
 import smbus
 bus = smbus.SMBus(1)
-
-
 
 class ADC:
     address = None
@@ -127,21 +128,8 @@ class Pulsesensor:
         return
 
 
-p = Pulsesensor()
-p.startAsyncBPM()
-
-try:
-    while True:
-        bpm = p.BPM
-        if bpm > 0:
-            print("BPM: %d" % bpm)
-        else:
-            print("No Heartbeat found")
-        time.sleep(1)
-except:
-    p.stopAsyncBPM()
 
 
 
 
-
+    
